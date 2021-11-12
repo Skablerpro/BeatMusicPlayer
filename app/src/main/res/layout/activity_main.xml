@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primaryBackground"
+    app:layoutDescription="@xml/activity_main_scene"
+    tools:context=".MainActivity"
+    android:id="@+id/parent_layout">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/action_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contextClickable="true">
+
+        <ImageView
+            android:id="@+id/beat_logo"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="24dp"
+            android:padding="5dp"
+            android:contentDescription="@string/beat_logo"
+            android:src="@drawable/ic_beat_logo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_music"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/beat_logo"
+            android:text="@string/app_name"
+            android:textColor="@color/colorMidBlue"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/beat_logo"
+            app:layout_constraintStart_toEndOf="@+id/beat_logo"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/more_options"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="15dp"
+            android:contentDescription="@string/more_options"
+            android:src="@drawable/ic_more_vert"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:foreground="@drawable/custom_rounded_ripple"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/colorMidBlueDark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/action_bar_layout">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingTop="30dp"
+        android:paddingBottom="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/action_bar_layout">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/primaryBackground"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            app:tabIndicatorColor="@color/colorMidBlue"
+            app:tabIndicatorFullWidth="true"
+            app:tabIndicatorGravity="center"
+            app:tabIndicatorHeight="0dp"
+            app:tabMode="scrollable"
+            app:tabRippleColor="@color/colorMidBlueDark"
+            app:tabSelectedTextColor="@color/colorMidBlue"
+            app:tabTextAppearance="@style/tabText"
+            app:tabTextColor="@color/white"/>
+
+    </androidx.viewpager.widget.ViewPager>
+
+<!--Details Fragment-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/fl_album_frag">
+
+    </FrameLayout>
+
+    <!--    Player Resources-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/player_cl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/iv_shuffle"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="20dp"
+        android:contentDescription="@string/shuffle"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_previous"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/iv_previous"
+        app:layout_constraintTop_toTopOf="@+id/iv_previous"
+        app:srcCompat="@drawable/ic_shuffle"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="@drawable/custom_rounded_ripple"/>
+
+    <ImageView
+        android:id="@+id/iv_more"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:contentDescription="@string/more_options"
+        android:src="@drawable/ic_more_vert"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="@drawable/custom_rounded_ripple" />
+
+    <ImageView
+        android:id="@+id/iv_eq"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="10dp"
+        android:contentDescription="@string/more_options"
+        android:src="@drawable/ic_equalizer"
+        app:layout_constraintEnd_toStartOf="@+id/iv_more"
+        app:layout_constraintTop_toTopOf="parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="@drawable/custom_rounded_ripple"/>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/title"
+        android:textColor="@color/colorMidBlue"
+        android:textSize="18sp"
+        android:maxLines="1"
+        android:ellipsize="end"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/album_cover" />
+
+    <ImageView
+        android:id="@+id/iv_repeat"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="20dp"
+        android:contentDescription="@string/repeat"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_next"
+        app:layout_constraintStart_toEndOf="@+id/iv_next"
+        app:layout_constraintTop_toTopOf="@+id/iv_next"
+        app:srcCompat="@drawable/ic_repeat_one"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="@drawable/custom_rounded_ripple" />
+
+    <ImageView
+        android:id="@+id/iv_list"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:contentDescription="@string/queue"
+        android:src="@drawable/ic_list"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_favourite"
+        app:layout_constraintStart_toStartOf="@+id/recyclerview_queue"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="@drawable/custom_rounded_ripple" />
+
+    <ImageView
+        android:id="@+id/iv_favourite"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:contentDescription="@string/queue"
+        android:src="@drawable/ic_favorite"
+        app:layout_constraintBottom_toTopOf="@+id/tv_progress"
+        app:layout_constraintEnd_toEndOf="@+id/recyclerview_queue"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="@drawable/custom_rounded_ripple" />
+
+    <SeekBar
+        android:id="@+id/seek_bar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:progress="100"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_progress"
+        app:layout_constraintEnd_toStartOf="@+id/tv_duration"
+        app:layout_constraintStart_toEndOf="@id/tv_progress"
+        app:layout_constraintTop_toTopOf="@+id/tv_progress" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:progress="50"
+        android:progressTint="@color/colorMidBlue"
+        app:layout_constraintTop_toTopOf="@id/player_cl" />
+
+    <ImageView
+        android:id="@+id/album_cover"
+        android:layout_width="250dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="50dp"
+        android:contentDescription="@string/album_art"
+        android:scaleType="fitCenter"
+        app:layout_constraintDimensionRatio="h,1:1"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_eq"
+        android:background="@drawable/rounded_outline" />
+
+    <ImageView
+        android:id="@+id/iv_previous"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="10dp"
+        android:contentDescription="@string/previous"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_play"
+        app:layout_constraintEnd_toStartOf="@+id/iv_play"
+        app:layout_constraintTop_toTopOf="@+id/iv_play"
+        app:srcCompat="@drawable/ic_previous"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="@drawable/custom_rounded_ripple" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_queue"
+        android:layout_width="250dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/iv_favourite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_artist" />
+
+    <ImageView
+        android:id="@+id/iv_next"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="10dp"
+        android:contentDescription="@string/next"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_play"
+        app:layout_constraintStart_toEndOf="@+id/iv_play"
+        app:layout_constraintTop_toTopOf="@+id/iv_play"
+        app:srcCompat="@drawable/ic_next"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="@drawable/custom_rounded_ripple" />
+
+    <ImageView
+        android:id="@+id/minimize"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:contentDescription="@string/more_options"
+        android:src="@drawable/ic_minimize"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:foreground="@drawable/custom_rounded_ripple"/>
+
+
+    <ImageView
+        android:id="@+id/iv_play"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="100dp"
+        android:contentDescription="@string/play"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_play"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="@drawable/custom_rounded_ripple" />
+
+    <TextView
+        android:id="@+id/tv_artist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+    <TextView
+        android:id="@+id/tv_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:text="@string/progress"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/seek_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/seek_bar" />
+
+    <TextView
+        android:id="@+id/tv_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/progress"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/iv_shuffle"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

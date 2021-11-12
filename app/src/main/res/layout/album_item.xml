@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="235dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/album_item_default"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="10dp"
+    android:layout_margin="5dp"
+    android:foreground="@drawable/custom_ripple">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/secondaryBackground"
+        android:id="@+id/card_rel_layout">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/card_album_cover"
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/skp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/card_album_cover"
+            android:layout_alignParentBottom="true">
+
+            <RelativeLayout
+                android:id="@+id/album_rel_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@id/album_card_more"
+                android:layout_centerVertical="true">
+
+                <TextView
+                    android:id="@+id/card_album_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="2dp"
+                    android:ellipsize="marquee"
+                    android:gravity="left"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="5dp"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:text="Album Name"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/card_album_artist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/card_album_name"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_toStartOf="@+id/card_album_length"
+                    android:singleLine="true"
+                    android:text="Album Artist"
+                    android:textColor="@color/colorMidBlue"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:id="@+id/card_album_length"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/card_album_name"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="end"
+                    android:singleLine="true"
+                    android:text="00:00:00"
+                    android:textColor="@color/colorMidBlue"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/album_card_more"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/ic_more_vert" />
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

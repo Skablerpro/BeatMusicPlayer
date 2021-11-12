@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:title="Name"
+        android:id="@+id/sort_by_name"
+        app:showAsAction="never"/>
+    <item
+        android:title="Date Added"
+        android:id="@+id/sort_by_date"
+        app:showAsAction="never"/>
+    <item
+        android:title="Artist"
+        android:id="@+id/sort_by_artist"
+        app:showAsAction="never"/>
+    <item
+        android:title="Album"
+        android:id="@+id/sort_by_album"
+        app:showAsAction="never"/>
+</menu>

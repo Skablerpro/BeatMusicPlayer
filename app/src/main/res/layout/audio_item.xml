@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/secondaryBackground"
+    android:layout_marginTop="1dp"
+    android:id="@+id/song_item"
+    android:foreground="@drawable/custom_ripple">
+
+    <CheckBox
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginEnd="10dp"
+        android:layout_centerVertical="true"
+        android:checked="false"
+        android:id="@+id/check_box"
+        android:visibility="gone"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@+id/menu_more">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/album_art"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_alignParentStart="true"
+            android:padding="5dp"
+            android:src="@mipmap/ic_launcher_round"
+            app:riv_corner_radius="2dp"
+            android:layout_marginStart="10dp"/>
+
+        <TextView
+            android:id="@+id/song_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="32dp"
+            android:layout_toEndOf="@+id/album_art"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:paddingEnd="5dp"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:text="Song Name"
+            android:textColor="@color/colorAccent"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/song_artist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/song_title"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="32dp"
+            android:layout_toEndOf="@+id/album_art"
+            android:layout_toStartOf="@+id/song_duration"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="Artist Name"
+            android:textColor="@color/colorMidBlue"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/song_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/song_title"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:singleLine="true"
+            android:text="Song Duration"
+            android:textAlignment="textEnd"
+            android:textColor="@color/colorMidBlue"
+            android:textSize="11sp" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/menu_more"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="10dp"
+        android:src="@drawable/ic_more_vert"
+        app:tint="@color/menuColor" />
+
+
+</RelativeLayout>

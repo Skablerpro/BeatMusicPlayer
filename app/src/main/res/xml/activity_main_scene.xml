@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="1000">
+        <KeyFrameSet>
+            <KeyAttribute
+                android:alpha="0"
+                motion:framePosition="3"
+                motion:motionTarget="@+id/iv_more" />
+            <KeyAttribute
+                android:alpha="0"
+                motion:framePosition="3"
+                motion:motionTarget="@+id/iv_eq" />
+            <KeyAttribute
+                android:alpha="0"
+                motion:framePosition="3"
+                motion:motionTarget="@+id/minimize" />
+            <KeyAttribute
+                android:alpha="0"
+                motion:framePosition="3"
+                motion:motionTarget="@+id/recyclerview_queue" />
+        </KeyFrameSet>
+        <OnSwipe
+            motion:dragDirection="dragDown"
+            motion:touchAnchorId="@+id/player_cl"
+            motion:touchAnchorSide="top"/>
+    </Transition>
+
+    <!--    transition click minimize btn-->
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:duration="1000">
+
+        <OnClick motion:targetId="@+id/minimize" />
+    </Transition>
+    <!--    transition swipedown-->
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:duration="1000">
+
+        <OnSwipe
+            motion:dragDirection="dragDown"
+            motion:touchAnchorId="@+id/player_cl"
+            motion:touchAnchorSide="top"
+            motion:touchRegionId="@id/player_cl"/>
+    </Transition>
+    <!--    transition swipeup-->
+    <Transition
+        motion:constraintSetEnd="@+id/start"
+        motion:duration="1000">
+
+        <OnSwipe
+            motion:dragDirection="dragUp"
+            motion:touchAnchorId="@+id/player_cl"
+            motion:touchAnchorSide="top"
+            motion:touchRegionId="@id/player_cl"/>
+    </Transition>
+
+        transition click player
+    <Transition
+        motion:constraintSetEnd="@+id/start"
+        motion:duration="1500">
+
+        <OnClick motion:targetId="@+id/player_cl" />
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/progress_bar"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:alpha="0"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/iv_more"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:alpha="0"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/iv_eq"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="10dp"
+            android:alpha="0"
+            motion:layout_constraintEnd_toStartOf="@+id/iv_more"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/minimize"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:alpha="0"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/iv_list"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginBottom="20dp"
+            android:alpha="0"
+            motion:layout_constraintBottom_toTopOf="@+id/tv_progress"
+            motion:layout_constraintStart_toStartOf="@+id/recyclerview_queue" />
+        <Constraint
+            android:id="@+id/seek_bar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:alpha="0"
+            motion:layout_constraintBottom_toBottomOf="@+id/tv_progress"
+            motion:layout_constraintEnd_toStartOf="@+id/tv_duration"
+            motion:layout_constraintStart_toEndOf="@id/tv_progress"
+            motion:layout_constraintTop_toTopOf="@+id/tv_progress" />
+        <Constraint
+            android:id="@+id/iv_repeat"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="20dp"
+            android:alpha="0"
+            motion:layout_constraintBottom_toBottomOf="@+id/iv_next"
+            motion:layout_constraintStart_toEndOf="@+id/iv_next"
+            motion:layout_constraintTop_toTopOf="@+id/iv_next" />
+        <Constraint
+            android:id="@+id/iv_shuffle"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="20dp"
+            android:alpha="0"
+            motion:layout_constraintBottom_toBottomOf="@+id/iv_previous"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintEnd_toStartOf="@+id/iv_previous"
+            motion:layout_constraintTop_toTopOf="@+id/iv_previous" />
+        <Constraint
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            motion:layout_constraintEnd_toStartOf="@+id/iv_previous"
+            motion:layout_constraintStart_toEndOf="@+id/album_cover"
+            motion:layout_constraintTop_toTopOf="@+id/player_cl" />
+        <Constraint
+            android:id="@+id/tv_artist"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            motion:layout_constraintEnd_toStartOf="@+id/iv_previous"
+            motion:layout_constraintStart_toStartOf="@+id/tv_title"
+            motion:layout_constraintTop_toBottomOf="@+id/tv_title" />
+        <Constraint
+            android:id="@+id/recyclerview_queue"
+            android:layout_width="250dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:alpha="0"
+            motion:layout_constraintBottom_toTopOf="@+id/iv_list"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/tv_artist" />
+        <Constraint
+            android:id="@+id/tv_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="20dp"
+            android:alpha="0"
+            motion:layout_constraintBottom_toTopOf="@+id/iv_shuffle"
+            motion:layout_constraintStart_toStartOf="parent" />
+        <Constraint
+            android:id="@+id/tv_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:alpha="0"
+            motion:layout_constraintBottom_toBottomOf="@+id/seek_bar"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintTop_toTopOf="@+id/seek_bar" />
+        <Constraint
+            android:id="@+id/iv_play"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="10dp"
+            motion:layout_constraintBottom_toBottomOf="@+id/album_cover"
+            motion:layout_constraintEnd_toStartOf="@+id/iv_next"
+            motion:layout_constraintTop_toTopOf="@+id/album_cover" />
+        <Constraint
+            android:id="@+id/iv_next"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginEnd="20dp"
+            motion:layout_constraintBottom_toBottomOf="@+id/iv_play"
+            motion:layout_constraintEnd_toEndOf="@+id/action_bar_layout"
+            motion:layout_constraintTop_toTopOf="@+id/iv_play" />
+        <Constraint
+            android:id="@+id/album_cover"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="0dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="@+id/player_cl" />
+        <Constraint
+            android:id="@+id/player_cl"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent" />
+        <Constraint
+            android:id="@+id/iv_previous"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginEnd="10dp"
+            motion:layout_constraintBottom_toBottomOf="@+id/iv_play"
+            motion:layout_constraintEnd_toStartOf="@+id/iv_play"
+            motion:layout_constraintTop_toTopOf="@+id/iv_play" />
+        <Constraint
+            android:id="@+id/iv_favourite"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginBottom="20dp"
+            android:alpha="0"
+            motion:layout_constraintBottom_toTopOf="@+id/tv_progress"
+            motion:layout_constraintEnd_toEndOf="@+id/recyclerview_queue" />
+        <Constraint
+            android:id="@+id/progress_bar"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:alpha="1"
+            motion:layout_constraintTop_toTopOf="@id/player_cl" />
+    </ConstraintSet>
+</MotionScene>

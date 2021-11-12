@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/song_fragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.SongsFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/sort_bar"
+        android:background="@color/primaryBackground">
+
+        <ImageView
+            android:id="@+id/song_list_sort"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/ic_sort"
+            app:tint="@color/menuColor"/>
+
+        <ImageView
+            android:id="@+id/sort_order"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_toEndOf="@id/song_list_sort"
+            android:background="@drawable/custom_rounded_ripple"
+            android:src="@drawable/ic_arrow_downward"
+            app:tint="@color/menuColor" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/play_list_shuffle"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/ic_play_shuffle"
+            android:layout_toStartOf="@+id/play_list"
+            app:tint="@color/menuColor"
+            android:layout_centerVertical="true"
+            android:background="@drawable/custom_rounded_ripple"/>
+
+        <ImageView
+            android:id="@+id/play_list"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/ic_playlist_play"
+            app:tint="@color/menuColor"
+            android:layout_centerVertical="true"
+            android:background="@drawable/custom_rounded_ripple" />
+
+    </RelativeLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/sort_bar"
+        android:layout_alignParentEnd="true"
+        android:background="@color/primaryBackground"
+        android:clickable="true"
+        android:fadeScrollbars="true"
+        android:focusable="true"
+        android:scrollbarSize="5dp"
+        android:scrollbarThumbVertical="@color/colorMidBlue"
+        android:scrollbars="vertical" />
+
+    <!--    <com.futuremind.recyclerviewfastscroll.FastScroller-->
+    <!--        android:id="@+id/rv_fastscroll"-->
+    <!--        android:layout_below="@+id/sort_bar"-->
+    <!--        android:orientation="vertical"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_alignParentEnd="true"-->
+    <!--        app:fastscroll__handleColor="@color/colorMidBlue"-->
+    <!--        app:fastscroll__bubbleColor="@color/colorMidBlue"/>-->
+
+
+</RelativeLayout>
